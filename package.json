@@ -1,0 +1,41 @@
+{
+  "name": "hr-wr-ui",
+  "version": "1.0.2",
+  "description": "RUI,tab,Tab,UI",
+  "main": "dist/hr-wr-ui/index.umd.js",
+  "module": "dist/hr-wr-ui/index.esm.js",
+  "types": "dist/hr-wr-ui/types",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -fr dist && set NODE_ENV=production&& rollup -c rollup.config.js",
+    "build:esm": "rm -fr dist && set NODE_ENV=production&& rollup -c rollup.config.esm.js",
+    "build:umd": "rm -fr dist && set NODE_ENV=production&& rollup -c rollup.config.umd.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-eslint": "^8.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@types/ms": "^0.7.31",
+    "@typescript-eslint/eslint-plugin": "^5.27.0",
+    "@typescript-eslint/parser": "^5.27.0",
+    "eslint": "^8.16.0",
+    "less": "^4.1.2",
+    "postcss": "^8.4.14",
+    "postcss-modules": "^4.3.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "rollup": "^2.75.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-tslint": "^0.2.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "ts-node": "^10.8.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.2"
+  }
+}
