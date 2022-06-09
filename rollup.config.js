@@ -4,7 +4,8 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import eslint from "@rollup/plugin-eslint";
 import postcss from "rollup-plugin-postcss";
-export const file = (type) => `dist/${name}/index.${type}.js`;
+export const file = (type) => `dist/index.${type}.js`;
+
 const overrides = {
   compilerOptions: {
     noUnusedParameters: true,
@@ -39,9 +40,12 @@ export default {
   external: ["react", "react-dom"],
   plugins: [
     postcss({
-      plugins: [],
+      extract: true,
+      namedExports: true,
+      minimize: true,
       modules: true,
-    }),
+      extensions: [".less", ".css"],
+    }), // 处理css、less 文件
     eslint({
       exclude: ["node_modules"],
     }),
@@ -49,8 +53,8 @@ export default {
       tsconfigOverride: overrides,
     }),
     nodeResolve({
-      extensions: [".js", ".jsx", ".ts", ".tsx", ".less"],
+      extensions: [".js", ".jsx", ".ts", ".tsx", ".less"], //允许我们加载第三方模块
     }),
-    commonjs(),
+    commonjs(), // 转换为ES6版本
   ],
 };
